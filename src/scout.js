@@ -9,18 +9,24 @@ class Scout {
     });
 
     var titles = await _Scout.titles.list();
-    var fortnite = titles.find( t => t.slug === 'fortnite' );
+    var fortnite = titles.find(t => t.slug === 'fortnite');
 
-    _Scout.players.search( 'Ninja', 'epic', 'pc', fortnite.id, true, true )
-      .then( ( data ) => {
-        var playerId = data.results[ 0 ].player.playerId;
+    _Scout.players.search('Ninja', 'epic', 'pc', fortnite.id, true, true)
+      .then((data) => {
+        var playerId = data.results[0].player.playerId;
 
-        _Scout.players.get( fortnite.id, playerId, 'p2.br.m0.weekly' )
-          .then( ( data ) => {
+        _Scout.players.get(fortnite.id, playerId, 'p2.br.m0.weekly')
+          .then((data) => {
             // Solo stats, current season.
-            console.log( JSON.stringify( data ) );
-          });
-      });
+            console.log(JSON.stringify(data));
+          })
+          .catch((err) => {
+            console.log("ERROR", err);
+          })
+      })
+      .catch((err) => {
+        console.log("ERROR", err);
+      })
   }
 }
 
