@@ -13,17 +13,31 @@ class Duo extends Component {
     service = new StatsService();
 
     componentWillMount() {
+        this.getAllStats();
+    }
+
+    getAllStats() {
         var playerInfo;
+        var theKills;
+        var theRatio;
+        var theScore;
+        var theMatch;
+
         this.service.listPlayerDetails()
             .then((response) => {
                 playerInfo = response.stats;
+                theKills = playerInfo.kills_duo.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                theRatio = Math.round(playerInfo.winrate_duo) + "%"
+                theScore = playerInfo.score_duo.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                theMatch = playerInfo.matchesplayed_duo.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
                 this.setState({
-                    duoKills: playerInfo.kills_duo,
-                    duoWinRate: playerInfo.winrate_duo,
-                    duoScore: playerInfo.score_duo,
-                    duoMatches: playerInfo.matchesplayed_duo
+                    duoKills: theKills,
+                    duoWinRate: theRatio,
+                    duoScore: theScore,
+                    duoMatches: theMatch,
                 })
+
             })
     }
 

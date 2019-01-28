@@ -13,19 +13,35 @@ class Squad extends Component {
     service = new StatsService();
 
     componentWillMount() {
+        this.getAllStats();
+    }
+
+    getAllStats() {
         var playerInfo;
+        var theKills;
+        var theRatio;
+        var theScore;
+        var theMatch;
+
         this.service.listPlayerDetails()
             .then((response) => {
                 playerInfo = response.stats;
+                theKills = playerInfo.kills_squad.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                theRatio = Math.round(playerInfo.winrate_squad) + "%"
+                theScore = playerInfo.score_squad.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                theMatch = playerInfo.matchesplayed_squad.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
                 this.setState({
-                    squadKills: playerInfo.kills_squad,
-                    squadWinRate: playerInfo.winrate_squad,
-                    squadScore: playerInfo.score_squad,
-                    squadMatches: playerInfo.matchesplayed_squad
+                    squadKills: theKills,
+                    squadWinRate: theRatio,
+                    squadScore: theScore,
+                    squadMatches: theMatch,
                 })
+
             })
     }
+
+
 
     render() {
 

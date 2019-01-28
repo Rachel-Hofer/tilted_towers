@@ -13,17 +13,31 @@ class Solo extends Component {
     service = new StatsService();
 
     componentWillMount() {
+        this.getAllStats();
+    }
+
+    getAllStats() {
         var playerInfo;
+        var theKills;
+        var theRatio;
+        var theScore;
+        var theMatch;
+
         this.service.listPlayerDetails()
             .then((response) => {
                 playerInfo = response.stats;
+                theKills = playerInfo.kills_solo.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                theRatio = Math.round(playerInfo.winrate_solo) + "%"
+                theScore = playerInfo.score_solo.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                theMatch = playerInfo.matchesplayed_solo.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
                 this.setState({
-                    soloKills: playerInfo.kills_solo,
-                    soloWinRate: playerInfo.winrate_solo,
-                    soloScore: playerInfo.score_solo,
-                    soloMatches: playerInfo.matchesplayed_solo,
+                    soloKills: theKills,
+                    soloWinRate: theRatio,
+                    soloScore: theScore,
+                    soloMatches: theMatch,
                 })
+
             })
     }
 
