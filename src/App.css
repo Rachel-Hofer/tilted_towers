@@ -1,9 +1,6 @@
 .app {
-/* background-image: url('https://fm.cnbc.com/applications/cnbc.com/resources/img/editorial/2018/03/15/105067468-Screen-Shot-2018-03-15-at-8.46.23-AM.600x337.jpg?v=1532102616'); */
 background-color: rgba(13, 12, 13, 0.9);
-background-repeat: no-repeat;
-background-size: cover;
-height: 100vh;
+min-height: 100vh;
 padding-top: 2rem;
 }
 
@@ -44,7 +41,7 @@ hr {
   width: 90%;
   margin-left: auto;
   margin-right: auto;
-  grid-template-columns: 50px 50px 50px;
+  grid-template-columns: repeat(3, 1fr);
   grid-template-rows: auto;
   grid-template-areas: 
     "header header header"
@@ -122,3 +119,41 @@ h3 {
   justify-content: center;
 }
 
+/* Extra small devices (phones, 600px and down)
+@media only screen and (max-width: 600px) {
+  .projects {
+    grid-template-columns: 1fr;
+    overflow: hidden;
+}
+
+.container {
+  grid-template-columns: 1fr;
+  overflow: hidden;
+}
+} */
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 768px) {
+  .projects {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+    "header"
+    "mainOne" 
+    "mainTwo" 
+    "mainThree";
+    overflow: hidden;
+}
+.container {
+  grid-template-columns: 1fr;
+  overflow: hidden;
+}
+
+.app {
+  min-height: 100%;
+}
+
+.item-a {
+  margin-bottom: 3rem;
+}
+}
