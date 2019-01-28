@@ -1,5 +1,8 @@
 .app {
-background-color: #4d4a4f;
+/* background-image: url('https://fm.cnbc.com/applications/cnbc.com/resources/img/editorial/2018/03/15/105067468-Screen-Shot-2018-03-15-at-8.46.23-AM.600x337.jpg?v=1532102616'); */
+background-color: rgba(13, 12, 13, 0.9);
+background-repeat: no-repeat;
+background-size: cover;
 height: 100vh;
 padding-top: 2rem;
 }
@@ -7,6 +10,10 @@ padding-top: 2rem;
 hr {
   width: 80%;
   margin-bottom: 1rem;
+}
+
+.playerName {
+  font-size: 3rem;
 }
 
 .item-a {
@@ -84,7 +91,11 @@ hr {
 
 h3 {
   margin: 0;
-  padding: 0;
+  padding: .3rem 0;
+}
+
+.matches {
+  margin-top: .5rem;
 }
 
 .soloDiv {
