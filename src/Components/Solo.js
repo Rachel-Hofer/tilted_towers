@@ -44,7 +44,7 @@ class Solo extends Component {
     render() {
 
         return (
-            // box boxOne 
+
             <div className="box boxOne item-b">
                 <div className="soloDiv">
                     <h1 className="title">SOLO</h1>

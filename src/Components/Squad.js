@@ -46,7 +46,7 @@ class Squad extends Component {
     render() {
 
         return (
-            // box boxThree 
+
             <div className="box boxThree item-d">
                 <div className="squadDiv">
                     <h1 className="title">SQUAD</h1>

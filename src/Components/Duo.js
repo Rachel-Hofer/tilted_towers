@@ -44,7 +44,7 @@ class Duo extends Component {
     render() {
 
         return (
-            // box boxTwo 
+
             <div className="box boxTwo item-c">
                 <div className="duoDiv">
                     <h1 className="title">DUO</h1>
