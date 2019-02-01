@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom';
 import Solo from './Solo';
 import Duo from './Duo';
 import Squad from './Squad';
+import Form from './Form';
 
 
 class Main extends Component {
@@ -11,6 +12,7 @@ class Main extends Component {
 
         return (
             <div className="projects container">
+                <Route component={Form} />
                 <Route component={Solo} />
                 <Route component={Duo} />
                 <Route component={Squad} />

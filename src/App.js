@@ -14,7 +14,6 @@ class App extends Component {
           <img className="ninjaPhoto" src="https://scufgaming.com/s/wp-content/uploads/2018/10/ninja.png" />
         </nav>
 
-
         <Route component={Main} />
       </div>
     );

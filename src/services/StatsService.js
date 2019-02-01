@@ -8,9 +8,9 @@ class StatsService {
     }
 
 
-    listPlayerDetails = () => {
+    listPlayerDetails = (input) => {
 
-        return this.axios.get('https://fortnite-public-api.theapinetwork.com/prod09/users/id?username=Ninja')
+        return this.axios.get('https://fortnite-public-api.theapinetwork.com/prod09/users/id?username=' + input)
             .then((response) => {
 
                 return this.axios.get(`https://fortnite-public-api.theapinetwork.com/prod09/users/public/br_stats?user_id=${response.data.uid}&platform=pc`)
@@ -22,5 +22,7 @@ class StatsService {
     }
 
 }
+
+
 
 export default StatsService;
